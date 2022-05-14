@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid lightgrey;
+    padding: 20px 20px 0px 20px;
+    width: 40%;
+    border-radius: 4px;
+}
+
+.container div {
+    height: 20px;
+
+    +.number {
+        margin-top: -20px;
+    }
+}
+
+.title {
+    padding-top: 10px;
+    color: grey;
+    margin: 20px 0px 0px 20px;
+
+}
+
+.outer-container {
+    margin: 10px 20px 20px 20px;
+    border: 1px solid lightgrey;
+    padding: 35px;
+    width: 70%;
+    border-radius: 8px;
+}
+
+.div1,
+.div2 {
+    flex: -1 0 0;
+}
+
+div.div3 {
+    flex: 0 0 100%;
+
+}
+
+div.div1 {
+    color: grey;
+    font-weight: 400;
+    font-size: 14px;
+
+}
+
+div.div2 {
+    border: 1px solid lightgray;
+    padding: 6px 9px 11px 16px;
+    width: 40px;
+    border-radius: 4px;
+}
+
+div.div3 {
+    font-size: 18px;
+}
+
+.add-btn {
+    padding: 10px 85px;
+    font-size: 20px;
+    margin-top: 32px;
+}
+
+.remove {
+    font-size: 17px;
+    padding: 9px 52px;
+    left: 268%;
+    bottom: 215%;
+}

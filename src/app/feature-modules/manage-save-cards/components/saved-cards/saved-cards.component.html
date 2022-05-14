@@ -1,0 +1,19 @@
+<h1 class="title">
+    My Wallet
+</h1>
+
+<div class="outer-container">
+    <div class="container">
+        <div class="div1 card-title">Debit Card Number</div>
+        <div class="div2"><img src="assets/images/mastercard.png" height="25px" width="32px" /></div>
+        <div class="div3 number">5129 XXXX XXXX 5441</div>
+        <div>
+            <button mat-stroked-button color="primary" class="mat-grey mat-primary remove"
+                (click)="removeCard();">Remove</button>
+        </div>
+    </div>
+    <div>
+        <button class="add-btn mat-grey mat-raised-button mat-primary add" mat-button color="Secondary"
+            (click)="addNewCard();">Add New Card</button>
+    </div>
+</div>
