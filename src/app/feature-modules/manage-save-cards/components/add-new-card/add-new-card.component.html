@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-4">
                 <mat-form-field appearance="outline" style="width:130px">
-                    <mat-label>MM</mat-label>
+                    <mat-label>Expiry Month</mat-label>
                     <mat-select formControlName="expireMonth">
                         <mat-option *ngFor="let item of months" [value]="item">{{item}}</mat-option>
                     </mat-select>
@@ -28,7 +28,7 @@
             </div>
             <div class="col-4">
                 <mat-form-field appearance="outline" style="width:132px">
-                    <mat-label>YY</mat-label>
+                    <mat-label>Expiry Year</mat-label>
                     <mat-select formControlName="expireYear">
                         <mat-option *ngFor="let item of years" [value]="item">{{item}}</mat-option>
                     </mat-select>
