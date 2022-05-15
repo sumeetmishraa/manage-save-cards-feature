@@ -3,6 +3,7 @@ export const ERROR_MSG = {
     INVALID_MONTH: 'Monthn required',
     INVALID_YEAR: 'Year required',
     INVALID_CVV: 'Cvv required',
-    USED_CARD_NUMBER: 'Card number is used already'
-
+    USED_CARD_NUMBER: 'Card number is used already',
+    YEAR_EXPIRED:'Year expired',
+    MONTH_EXPIRED:'Month expired'
 }
