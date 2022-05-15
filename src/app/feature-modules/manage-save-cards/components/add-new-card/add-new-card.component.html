@@ -1,42 +1,58 @@
-<button mat-button (click)="close();">
-    <mat-icon>close</mat-icon>
-</button>
-
-<form [formGroup]="addNewCardForm">
-    <div class="row">
-        <div class="col-12">
-            <mat-form-field appearance="outline">
-                <mat-label>Enter Debit/credit Card Number</mat-label>
-                <input formControlName="cardNumber" matInput>
-            </mat-form-field>
+<div>
+    <button mat-dialog-close (click)="close()" mat-icon-button style="top: -21px;left: 94%;">
+        <img src='assets/images/cross.png' width="30" />
+    </button>
+    <h1>Add New Card</h1>
+    <form [formGroup]="addNewCardForm">
+        <div class="row">
+            <div class="col-10">
+                <mat-form-field appearance="outline" style="width: 400px;">
+                    <mat-label>Enter Debit/Credit Card Number</mat-label>
+                    <input type="text" maxlength="19" id="input" formControlName="cardNumber" matInput
+                        (keypress)='srv?.noAlphaNumericKey($event)' (keyup)="srv?.cardNumberSpacing($event)"
+                        (paste)="srv?.onPaste($event)" (drop)="srv?.onDrop($event)" (drag)="srv?.onDrag($event)"
+                        (copy)="srv?.onCopy($event)" (cut)="srv?.onCut($event)">
+                </mat-form-field>
+                <span class="error-msg" *ngIf="error.cardNumberError">{{error.cardNumberError}}</span>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-4">
+                <mat-form-field appearance="outline" style="width:130px">
+                    <mat-label>MM</mat-label>
+                    <mat-select formControlName="expireMonth">
+                        <mat-option *ngFor="let item of months" [value]="item">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <span class="error-msg" *ngIf="error.expireMonthError">{{error.expireMonthError}}</span>
+            </div>
+            <div class="col-4">
+                <mat-form-field appearance="outline" style="width:132px">
+                    <mat-label>YY</mat-label>
+                    <mat-select formControlName="expireYear">
+                        <mat-option *ngFor="let item of years" [value]="item">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <span class="error-msg" *ngIf="error.expireYearError">{{error.expireYearError}}</span>
+            </div>
+            <div class="col-3">
+                <mat-form-field appearance="outline" style="width:112px">
+                    <mat-label>CVV</mat-label>
+                    <input type="password" formControlName="cvv" matInput maxlength="3"
+                        (keypress)='srv?.noAlphaNumericKey($event)' (paste)="srv?.onPaste($event)"
+                        (drop)="srv?.onDrop($event)" (drag)="srv?.onDrag($event)" (copy)="srv?.onCopy($event)"
+                        (cut)="srv?.onCut($event)">
+                    <div matSuffix mat-icon-button aria-label="Clear">
+                        <img class="cvv-img" src="assets/images/cvv.png" width="40" height="40" />
+                    </div>
+                </mat-form-field>
+                <span class="error-msg" *ngIf="error.cvvError">{{error.cvvError}}</span>
+            </div>
+        </div>
+    </form>
+    <div>
+        <button mat-raised-button class="mat-primary mat-raised-button add-card-btn" [disabled]="isDisable()"
+            (click)="onSubmit();">Add Card</button>
     </div>
 
-    <div class="row">
-        <div class="col-4">
-            <mat-form-field appearance="outline">
-                <mat-label>Select</mat-label>
-                <mat-select formControlName="expireMonth">
-                    <mat-option *ngFor="let item of months" [value]="item">{{item}}</mat-option>
-                
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field appearance="outline">
-                <mat-label>Select</mat-label>
-                <mat-select formControlName="expireYear">
-                    <mat-option *ngFor="let item of years" [value]="item">{{item}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field appearance="outline">
-                <mat-label>CVV</mat-label>
-                <input formControlName="cvv" matInput>
-            </mat-form-field>
-        </div>
-    </div>
-</form>
-
-<button mat-raised-button class="mat-grey mat-primary mat-raised-button" (click)="onSubmit();">Add Card</button>
+</div>

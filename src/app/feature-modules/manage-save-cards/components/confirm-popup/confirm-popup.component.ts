@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import { ManageCardService } from '../../services/manage-card.service';
 @Component({
   selector: 'app-confirm-popup',
   templateUrl: './confirm-popup.component.html',
@@ -8,20 +8,29 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class ConfirmPopupComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ConfirmPopupComponent>, public dialog?: MatDialog) { }
+  constructor(
+    public dialogRef: MatDialogRef<ConfirmPopupComponent>,
+    public dialog?: MatDialog,
+    private srv?: ManageCardService,
+    @Inject(MAT_DIALOG_DATA) public data?: any
+  ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  close(){
+  submit() {
+    const id = this.data?.id_key;
+    this.srv?.removeCard(id)
+    this.srv?.updateLocalStorage();
     this.dialogRef.close();
   }
 
-  ok(){}
+  cancel() {
+    this.dialogRef.close('cancel');
 
-  cancel(){
-    this.dialog?.closeAll();
+  }
 
+  close() {
+    this.dialogRef.close('close');
   }
 
 }

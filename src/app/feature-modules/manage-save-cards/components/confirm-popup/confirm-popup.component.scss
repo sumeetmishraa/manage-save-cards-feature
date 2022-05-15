@@ -1,5 +1,42 @@
-.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button .cross {
-    margin-left: 88%;
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button .cross {
     margin-top: -3%;
     margin-bottom: 1%;
+}
+
+.mat-raised-button,
+.mat-primary,
+.left-btn {
+    padding: 6px 60px;
+    margin-right: 17px;
+    background: #017cc3;
+    a {
+        font-weight: 300;
+        font-size: 16px;
+    }
+}
+
+.mat-stroked-button,
+.mat-grey,
+.right-btn {
+    padding: 6px 60px;
+    border: 1px solid #017cc3;
+    a {
+        color: #017cc3;
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+
+h1 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #808080;
+    margin-top: -9px;
+}
+
+.mt-btn {
+    padding-top: 10px
 }
